@@ -1,0 +1,152 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Homework-9",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/user/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Register User",
+        "operationId": "RegisterUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RegisterUserRequest"
+                  },
+                  {
+                    "example": {
+                      "username": "ilzam",
+                      "password": "12345"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "username": "ilzam",
+                "password": "12345"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/movie": {
+      "post": {
+        "tags": [
+          "Movie"
+        ],
+        "summary": "Create Movie",
+        "operationId": "CreateMovie",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateMovieRequest"
+                  },
+                  {
+                    "example": {
+                      "email": "oainger0@craigslist.org",
+                      "password": "KcAk6Mrg7DRM"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "oainger0@craigslist.org",
+                "password": "KcAk6Mrg7DRM"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegisterUserRequest": {
+        "title": "RegisterUserRequest",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "ilzam",
+          "password": "12345"
+        }
+      },
+      "CreateMovieRequest": {
+        "title": "CreateMovieRequest",
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "oainger0@craigslist.org",
+          "password": "KcAk6Mrg7DRM"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "User"
+    },
+    {
+      "name": "Movie"
+    }
+  ]
+}
